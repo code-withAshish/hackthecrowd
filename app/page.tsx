@@ -12,7 +12,8 @@ async function getProjects() {
 }
 
 export default async function Home() {
-  const projects = await getProjects()
+  // const projects = await getProjects()
+  const projects: any[] = []
   return (
     <main className="container mx-auto px-4 py-8">
       <nav className="flex justify-between items-center mb-8">
