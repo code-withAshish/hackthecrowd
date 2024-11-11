@@ -1,9 +1,9 @@
-import getApiUrl from '@/utils'
+import getApiUrl from '@/app/util'
 import Link from 'next/link'
 
 async function getProject(id: string) {
-    const apiUrl = getApiUrl()
-  const res = await fetch(`${apiUrl}/api/projects/${id}`, { cache: 'no-store' })
+  const apiUrl = getApiUrl()
+  const res = await fetch(`${apiUrl}/api/projects${id}`, { cache: 'no-store' })
   if (!res.ok) {
     throw new Error('Failed to fetch project')
   }
@@ -38,8 +38,8 @@ export default async function ProjectDetails({ params }: { params: any }) {
           </div>
         </div>
         <div className="w-full bg-cyan-800 rounded-full h-4 mb-6">
-          <div 
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 h-4 rounded-full" 
+          <div
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 h-4 rounded-full"
             style={{ width: `${(project.currentFunding / project.fundingGoal) * 100}%` }}
           ></div>
         </div>
